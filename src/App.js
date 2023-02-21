@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import Logo from "../src/assets/svg/Logo.svg";
+import "./index.css";
+import styled, { ThemeProvider } from "styled-components";
+
+const Container = styled.div`
+  background-color: ${(props) => props.theme.primaryColor};
+  background-size: cover;
+`;
+const Header = styled.header`
+  .App-logo {
+    display: block;
+    width: auto;
+    margin: auto;
+  }
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider
+      theme={{
+        //White
+        primaryColor: "rgb(249, 249, 249)",
+      }}
+    >
+      <Container>
+        <Header>
+          <img src={Logo} className="App-logo" alt="logo" />
+        </Header>
+      </Container>
+    </ThemeProvider>
   );
 }
 
