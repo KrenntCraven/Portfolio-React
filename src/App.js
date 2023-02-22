@@ -1,16 +1,15 @@
 import Logo from "../src/assets/svg/Logo.svg";
 import "./index.css";
+import { verticalCentered } from "./Global";
 import styled, { ThemeProvider } from "styled-components";
 
 const Container = styled.div`
   background-color: ${(props) => props.theme.primaryColor};
-  background-size: cover;
-`;
-const Header = styled.header`
+  height: 100vh;
+  width: 100vw;
+
   .App-logo {
-    display: block;
-    width: auto;
-    margin: auto;
+    ${verticalCentered}
   }
 `;
 
@@ -18,14 +17,14 @@ function App() {
   return (
     <ThemeProvider
       theme={{
-        //White
+        // White
         primaryColor: "rgb(249, 249, 249)",
+        // Black
+        secondColor: "rgb(12, 11, 19)",
       }}
     >
       <Container>
-        <Header>
-          <img src={Logo} className="App-logo" alt="logo" />
-        </Header>
+        <img src={Logo} className="App-logo" alt="logo" />
       </Container>
     </ThemeProvider>
   );
