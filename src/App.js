@@ -4,7 +4,7 @@ import Background_Home from "../src/assets/svg/Background_Home.svg";
 import { verticalCentered } from "./Global";
 import styled, { ThemeProvider } from "styled-components";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Container = styled.div`
   background-color: ${(props) => props.theme.primaryColor};
@@ -29,18 +29,11 @@ function App() {
         secondColor: "rgb(12, 11, 19)",
       }}
     >
-      {/* animate={{ opacity: 1, scale: 0 }}
-      initial={{ opacity: 0 }} */}
       <Container as={motion.div} />
       <Link to="/Home">
-        <App_Logo
-          src={Logo}
-          alt="logo"
-          as={motion.img}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, type: "spring" }}
-        />
+        <AnimatePresence>
+          <App_Logo src={Logo} alt="logo" />
+        </AnimatePresence>
       </Link>
     </ThemeProvider>
   );
