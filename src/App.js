@@ -3,7 +3,8 @@ import "./index.css";
 import Background_Home from "../src/assets/svg/Background_Home.svg";
 import { verticalCentered } from "./Global";
 import styled, { ThemeProvider } from "styled-components";
-import { Routes, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Container = styled.div`
   background-color: ${(props) => props.theme.primaryColor};
@@ -11,12 +12,11 @@ const Container = styled.div`
   background-repeat: no-repeat;
   height: 100vh;
   width: 100vw;
-
-  .App-logo {
-    ${verticalCentered}
-    width: 18.625vw;
-    height: 22.83vw;
-  }
+`;
+const App_Logo = styled.img`
+  ${verticalCentered}
+  height: 22.83vw;
+  width: 18.625vw;
 `;
 
 function App() {
@@ -29,11 +29,19 @@ function App() {
         secondColor: "rgb(12, 11, 19)",
       }}
     >
-      <Container>
-        <Link to="/Home">
-          <img src={Logo} className="App-logo" alt="logo" />
-        </Link>
-      </Container>
+      {/* animate={{ opacity: 1, scale: 0 }}
+      initial={{ opacity: 0 }} */}
+      <Container as={motion.div} />
+      <Link to="/Home">
+        <App_Logo
+          src={Logo}
+          alt="logo"
+          as={motion.img}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4, type: "spring" }}
+        />
+      </Link>
     </ThemeProvider>
   );
 }
