@@ -1,6 +1,6 @@
 import Logo from "../src/assets/svg/Logo.svg";
 import "./index.css";
-import Background_Home from "../src/assets/svg/Background_Home.svg";
+import Logo_Background from "../src/assets/svg/Logo_Background.svg";
 import { verticalCentered } from "./Global";
 import styled, { ThemeProvider } from "styled-components";
 import { Link } from "react-router-dom";
@@ -8,10 +8,8 @@ import { motion } from "framer-motion";
 
 const Container = styled.div`
   background-color: ${(props) => props.theme.primaryColor};
-  background: url(${Background_Home});
+  background: url(${Logo_Background});
   background-repeat: no-repeat;
-  height: 100vh;
-  width: 100vw;
   position: static;
 `;
 const App_Logo = styled.button`
@@ -29,6 +27,8 @@ function App() {
         primaryColor: "rgb(249, 249, 249)",
         // Black
         secondColor: "rgb(12, 11, 19)",
+        // Primary Font
+        primaryFont: "",
       }}
     >
       <Container

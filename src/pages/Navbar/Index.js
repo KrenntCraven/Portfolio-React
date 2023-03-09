@@ -10,9 +10,35 @@ const Navigators = (path, label, id) => {
   );
 };
 
-const Nav = styled.nav``;
+const Nav = styled.nav`
+  height: 80px;
+  width: 100%;
+`;
 
-const Logo = styled.div``;
+const Content = styled.div`
+  width: 100%;
+  font-family: "Poppins";
+  font-weight: medium;
+  ul {
+    margin-top: 1.75rem;
+    position: absolute;
+    right: 2%;
+    li {
+      margin-left: 1rem;
+      display: inline;
+      font-size: 1.625rem;
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+`;
+
+const Logo = styled.img`
+  position: absolute;
+  margin-top: 1rem;
+  left: 2%;
+`;
 
 const NavLinks = [
   { id: 1, path: "/Home", label: "Home" },
@@ -23,16 +49,15 @@ const NavLinks = [
 export const Navbar = () => {
   return (
     <>
-      <Logo>
-        <img src={Home_Logo}></img>
-      </Logo>
-
       <Nav>
-        <ul>
-          {NavLinks.map((Pages) =>
-            Navigators(Pages.path, Pages.label, Pages.id)
-          )}
-        </ul>
+        <Content>
+          <Logo src={Home_Logo} alt={Home_Logo}></Logo>
+          <ul>
+            {NavLinks.map((Pages) =>
+              Navigators(Pages.path, Pages.label, Pages.id)
+            )}
+          </ul>
+        </Content>
       </Nav>
     </>
   );
